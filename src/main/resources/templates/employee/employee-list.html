@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <title>員工名單</title>
+</head>
+<div>
+    <header>
+     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div>
+                <a href = "/" class = "navbar-brand">
+                    Joseph-App
+                </a>
+            </div>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://myiphonex64g23.wixsite.com/website">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
+<style>
+    .footer {
+        position: absolute;
+        font-size: small;
+        bottom: 0;
+        width:100%;
+        height: 40px;
+        background-color: #2d2d2d;
+        text-align: center;
+        color: white;
+    }
+    .button{
+        font-size: small;
+        float: right;
+        position: relative;
+        margin: auto;
+        margin-top: 10px;
+
+    }
+</style>
+
+<body>
+<div class="container text-center">
+    <div style="display: flex; justify-content: right" class="button">
+        <form th:action="@{/logout}" method="post">
+            <input class="text-right" type="submit" value="SignOut" />
+        </form>
+    </div>
+    <div>
+        <h1>Employee List</h1>
+    </div>
+
+    <div>
+        <table class="table table-striped table-bordered table-responsive-md">
+            <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>CardNo</th>
+                <th>Position</th>
+                <th>Mobile</th>
+                <th>Facebook</th>
+                <th>Salary</th>
+                <th>Address</th>
+                <th>CreateAt</th>
+                <th>Enabled</th>
+                <th>Gender</th>
+                <th>Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="employee: ${listEmployees.page}">
+                <tr>
+                    <td th:text="${employee.getId()}">ID</td>
+                    <td th:text="${employee.getName()}">Name</td>
+                    <td th:text="${employee.getDepartment()}">Department</td>
+                    <td th:text="${employee.getCardno()}">CardNo</td>
+                    <td th:text="${employee.getPosition()}">Position</td>
+                    <td th:text="${employee.getMobile()}">Mobile</td>
+                    <td th:text="${employee.getFacebook()}">Facebook</td>
+                    <td th:text="${employee.getSalary()}">Salary</td>
+                    <td th:text="${employee.getAddress()}">Address</td>
+                    <td th:text="${employee.getCreateAt()}">CreateAt</td>
+                    <td th:text="${employee.isEnabled()}">Enabled</td>
+                    <td th:text="${employee.getGender()}">Gender</td>
+                <td>
+                    <a class="btn btn-primary m-1" th:href="@{'/employee/edit/' + ${employee.getId()}}">Edit</a>
+                </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+
+        <nav aria-label="Page navigation" class="paging">
+            <ul class="pagination" th:if="${listEmployees.page.totalPages > 1}">
+                <li class="page-item" th:classappend="${!listEmployees.paging.isPrevEnabled()? 'disabled' : ''}">
+                    <a class="page-link" th:href="@{'/employee/list/?pageNumber=' + ${listEmployees.paging.pageNumber - 1}}"
+                       tabindex="-1">Previous</a>
+                </li>
+                <th:block th:each="item : ${listEmployees.paging.getItems()}">
+                    <li class="page-item" th:classappend="${item.index == listEmployees.paging.pageNumber? 'active' : ''}"
+                        th:if="${item.pageItemType.name() == 'PAGE'}">
+                        <a class="page-link" th:href="@{'/employee/list/?pageNumber=' + ${item.index}}"
+                           th:text="${item.index}"></a>
+                    </li>
+                    <li class="page-item disabled" th:if="${item.pageItemType.name() == 'DOTS'}">
+                        <a class="page-link" href="#">...</a>
+                    </li>
+                </th:block>
+                <li class="page-item" th:classappend="${!listEmployees.paging.isNextEnabled()? 'disabled' : ''}">
+                    <a class="page-link" th:href="@{'/employee/list/?pageNumber=' + ${listEmployees.paging.pageNumber + 1}}">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+<div>
+    <footer class="footer">
+        <span class="text-muted">All Rights Reserved 2020 &nbsp; @Joseph Crypto</span>
+    </footer>
+</div>
+
+</body>
+</html>
