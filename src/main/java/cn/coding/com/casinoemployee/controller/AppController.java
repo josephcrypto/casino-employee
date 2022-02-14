@@ -36,7 +36,7 @@ public class AppController {
     @PostMapping("employee/process_register")
     public String processRegister(Employee employee, RedirectAttributes redirectAttributes) {
         repository.save(employee);
-        return "redirect:/employee/list";
+        return "redirect:/employee/employee-list";
     }
 
     @GetMapping("employee/list")

@@ -30,14 +30,14 @@ CREATE TABLE `employee` (
   `position` varchar(45) NOT NULL,
   `mobile` varchar(20) DEFAULT NULL,
   `salary` varchar(45) DEFAULT NULL,
-  `enabled` bit(1) NOT NULL,
+  `enabled` tinyint unsigned NOT NULL DEFAULT '1' COMMENT '启用 1 禁用 0',
   `facebook` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
-  `gender` tinyint NOT NULL,
+  `gender` tinyint NOT NULL COMMENT '''1'' male ''0'' female',
   `create_at` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_d93p036ob556ldfni6by2cnnp` (`cardno`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Joseph','456','Software&Development ','developer','467894654601','12345678.00',_binary '\0','https://www.facebook.com/josephcrypto','Tachileik',1,'2022-02-04'),(2,'test','1324','testtt','test','1231564646','13215465',_binary '\0','test','test0',1,'2022-02-03'),(3,'smith','12345','Programming','developer','123456789','125478.00',_binary '\0','https://www.facebook.com/josephcrypto','Tachileik0',1,'2022-02-01'),(4,'smith','45687','Technology','developer','942831611070','1456.00',_binary '\0','https://www.facebook.com/josephcrypto','Tachileik',1,'2022-02-02'),(5,'test again','789','testerewar','test wewqe','132456498','13132.00',_binary '\0','rtetetewt','ertea',1,'2022-02-02'),(6,'jsohce','564646','Technology','ewrewareawr','132146549798','4564.00',_binary '\0','afawerew','Tachileik',1,'2022-02-04'),(7,'minutes','256','Technology','developer','4678946546','85965.00',_binary '\0','https://www.facebook.com/josephcrypto','Above The Earth',1,'2022-02-03');
+INSERT INTO `employee` VALUES (1,'Joseph','456','Software&Development ','developer','467894654601','12345678.00',0,'https://www.facebook.com/josephcrypto','Tachileik',1,'2022-02-04'),(2,'test','1324','testtt','test','1231564646','13215465',0,'test','test0',1,'2022-02-03'),(3,'smith','12345','Programming','developer','123456789','125478.00',0,'https://www.facebook.com/josephcrypto','Tachileik0',1,'2022-02-01'),(4,'smith','45687','Technology','developer','942831611070','1456.00',0,'https://www.facebook.com/josephcrypto','Tachileik',1,'2022-02-02'),(5,'test again','789','testerewar','test wewqe','132456498','13132.00',0,'rtetetewt','ertea',1,'2022-02-02'),(6,'jsohce','564646','Technology','ewrewareawr','132146549798','4564.00',0,'afawerew','Tachileik',1,'2022-02-04'),(7,'minutes','256','Technology','developer','4678946546','85965.00',0,'https://www.facebook.com/josephcrypto','Above The Earth',1,'2022-02-03'),(8,'Seven Fold','45','Software&Development Depa','developer','56894578121','85963.00',1,'https://www.facebook.com/sevenfold','US',1,'2022-02-03'),(9,'Jame Bound','007','CentraIntelligentAmerica','Agent','110011100010','1000000.00',1,'-','US',1,'1999-01-14');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-12 12:13:46
+-- Dump completed on 2022-02-14 11:43:54

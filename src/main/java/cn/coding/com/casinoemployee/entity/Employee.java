@@ -44,5 +44,5 @@ public class Employee {
 
     private Date createAt;
 
-    private boolean enabled;
+    private byte enabled;
 }
