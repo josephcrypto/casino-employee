@@ -41,7 +41,7 @@ public class AppController {
 
     @GetMapping("employee/list")
     public String listEmployees(@RequestParam(value = "pageNumber", required = false, defaultValue = "1") int pageNumber,
-                                @RequestParam(value = "size", required = false, defaultValue = "5") int size, Model model){
+                                @RequestParam(value = "size", required = false, defaultValue = "8") int size, Model model){
         model.addAttribute("listEmployees",employeeService.getEmployeeWithPaginated(pageNumber, size));
         return "employee/employee-list";
     }
