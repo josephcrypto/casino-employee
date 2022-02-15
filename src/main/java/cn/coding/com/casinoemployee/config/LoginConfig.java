@@ -16,7 +16,7 @@ public class LoginConfig implements WebMvcConfigurer {
         InterceptorRegistration registration = registry.addInterceptor(new AdminInterceptor());
         registration.addPathPatterns("/**");
         registration.excludePathPatterns("/","/login", "/api/**",
-                "/403/**", "/webjars/**","/register/**",
+                "/403/**", "/webjars/**","/register/**", "/contact/**",
                 "/process_register/**","/register_success/**");
     }
 

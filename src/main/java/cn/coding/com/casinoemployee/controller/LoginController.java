@@ -28,6 +28,11 @@ public class LoginController {
         return "home";
     }
 
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
     @GetMapping("/403")
     public String accessDenied() {
         return "403";
