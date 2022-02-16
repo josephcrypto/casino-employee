@@ -3,6 +3,7 @@ package cn.coding.com.casinoemployee.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Data
 @Entity
@@ -12,8 +13,15 @@ public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
+    @NotEmpty
+    private String yourName;
+
+    @NotEmpty
     private String email;
+
+    @NotEmpty
     private String subject;
+
+    @NotEmpty
     private String message;
 }
