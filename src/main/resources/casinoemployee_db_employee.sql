@@ -34,7 +34,7 @@ CREATE TABLE `employee` (
   `facebook` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   `gender` tinyint NOT NULL COMMENT '''1'' male ''0'' female',
-  `create_at` date DEFAULT NULL,
+  `join_date` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UK_d93p036ob556ldfni6by2cnnp` (`cardno`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

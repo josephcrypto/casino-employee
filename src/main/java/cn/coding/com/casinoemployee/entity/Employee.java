@@ -42,7 +42,7 @@ public class Employee {
 
     private String address;
 
-    private Date createAt;
+    private Date joinDate;
 
     private byte enabled;
 }
