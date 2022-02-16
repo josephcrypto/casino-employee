@@ -37,4 +37,9 @@ public class LoginController {
     public String accessDenied() {
         return "403";
     }
+
+    @GetMapping("/service")
+    public String services() {
+        return "service";
+    }
 }
