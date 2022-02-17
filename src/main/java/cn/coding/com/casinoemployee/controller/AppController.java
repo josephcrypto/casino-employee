@@ -57,4 +57,15 @@ public class AppController {
             return "redirect:/employee/list";
         }
     }
+
+    @GetMapping("/employee/delete/{id}")
+    public String delete(@PathVariable("id") Integer id, RedirectAttributes att) {
+        try {
+            employeeService.deleteById(id);
+            att.addFlashAttribute("message", "Employee Id " + id + " has been deleted!");
+        } catch (Exception e) {
+            att.addFlashAttribute("message", e.getMessage());
+        }
+        return "redirect:/employee/list";
+    }
 }
