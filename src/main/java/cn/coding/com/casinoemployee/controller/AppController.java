@@ -30,13 +30,13 @@ public class AppController {
     public String saveEmployee(Employee employee, RedirectAttributes redirectAttributes) {
         employeeService.save(employee);
         redirectAttributes.addFlashAttribute("message", "New Employee Register Successfully");
-        return "redirect:/employee/list";
+        return "employee/register_success";
     }
 
     @PostMapping("employee/process_register")
     public String processRegister(Employee employee, RedirectAttributes redirectAttributes) {
         repository.save(employee);
-        return "redirect:/employee/employee-list";
+        return "redirect:/employee/register_success";
     }
 
     @GetMapping("employee/list")

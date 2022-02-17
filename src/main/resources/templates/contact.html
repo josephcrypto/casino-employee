@@ -19,11 +19,11 @@
     color: white;
   }
 </style>
-<body>
+<body style="background-color: #1c1c1c;">
 <div class="container-fluid">
   <div class="text-center">
     <h2 style="color: black;margin-top: 50px;"> Contact Us</h2>
-    <p class="text-center mx-auto mb-5">Do you have any questions? please do not hesitate to contact us directly. Our team will come back to you
+    <p style="color: #e1dddb;" class="text-center mx-auto mb-5">Do you have any questions? please do not hesitate to contact us directly. Our team will come back to you
     within a matter of hours to help you.</p>
   </div>
   <form th:action="@{/contact/save}" th:object="${contact}"
@@ -32,14 +32,14 @@
 
     <div class="m-3">
       <div class="form-group row">
-        <label class="col-4 col-form-label">yourName </label>
+        <label style="color: #e1dddb;" class="col-4 col-form-label">yourName</label>
         <div class="col-8">
           <input type="text" th:field="*{yourName}" class="form-control" minlength="3" maxlength="30" required />
         </div>
       </div>
 
       <div class="form-group row">
-        <label class="col-4 col-form-label">Email </label>
+        <label style="color: #e1dddb;" class="col-4 col-form-label">Email</label>
         <div class="col-8">
           <input type="email" th:field="*{email}" class="form-control"
                  required minlength="3" maxlength="25"/>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-4 col-form-label">Subject </label>
+        <label style="color: #e1dddb;" class="col-4 col-form-label">Subject</label>
         <div class="col-8">
           <input type="text" th:field="*{subject}" class="form-control"
                  required  maxlength="40"/>
@@ -55,7 +55,7 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-sm-4 col-form-label">Message</label>
+        <label style="color: #e1dddb;" class="col-sm-4 col-form-label">Message</label>
         <div class="col-sm-8">
           <input type="text" th:field="*{message}" class="form-control"/>
         </div>
@@ -70,7 +70,7 @@
   </form>
 </div>
 <hr>
-<div style="font-size: small; color: coral;" class="text-center">
+<div style="font-size: small; color: #787879;" class="text-center">
   <ul class="list-unstyled mb-0">
     <li><i class="fas fa-map-marker-alt fa-2x"></i>
     <p>Joseph Crypto, JC Developer, MM</p>
